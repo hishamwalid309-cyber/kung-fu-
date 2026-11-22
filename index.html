@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b10">
+<title>Dark Storm Kung Fu | Hisham Walid</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Cinzel:wght@500;600;700;800&display=swap');
+:root{--bg:#080b10;--panel:#101720;--panel2:#151f29;--gold:#d5ad62;--gold2:#f1d59b;--muted:#a7b0b9;--white:#f4f1e9;--line:rgba(213,173,98,.22);--red:#a83b3b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#172330 0%,#080b10 48%,#05070a 100%);color:var(--white);font-family:'Cairo',sans-serif;line-height:1.85}a{color:inherit;text-decoration:none}button{font:inherit}
+#progress{position:fixed;top:0;right:0;height:3px;background:var(--gold);width:0;z-index:1000;box-shadow:0 0 12px var(--gold)}
+header{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(6,9,13,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{max-width:1240px;margin:auto;padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:'Cinzel',serif;direction:ltr;font-weight:800;letter-spacing:2px;color:var(--gold);font-size:18px;white-space:nowrap}
+.navlinks{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.navlinks button{border:0;background:none;color:#c5cbd0;cursor:pointer;font-size:13px;transition:.25s}.navlinks button:hover,.navlinks button.active{color:var(--gold2)}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--gold);padding:5px 10px;border-radius:8px}
+.page{display:none;min-height:100vh;padding:110px 5% 70px;animation:fade .55s ease}.page.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.wrap{max-width:1160px;margin:auto}.eyebrow{color:var(--gold);letter-spacing:3px;font:600 12px 'Cinzel',serif;text-transform:uppercase;direction:ltr;text-align:right}
+h1,h2,h3{line-height:1.3;margin:0 0 16px}h1{font-size:clamp(38px,6vw,76px);font-weight:900}h2{font-size:clamp(27px,4vw,43px)}h3{font-size:21px;color:var(--gold2)}
+p{color:#c1c8ce;margin:0 0 16px}.gold{color:var(--gold2)}.muted{color:var(--muted)}.small{font-size:13px}.rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:32px 0}
+.hero{min-height:calc(100vh - 100px);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:40px}
+.hero h1{direction:ltr;text-align:right;letter-spacing:1px;color:#f6f1e7;text-shadow:0 10px 35px #000}.hero h1 span{display:block;color:var(--gold);font-family:'Cinzel',serif;font-size:clamp(38px,6vw,72px)}
+.hero p{max-width:650px;font-size:17px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{border:1px solid var(--gold);padding:11px 22px;border-radius:3px;color:#0a0d11;background:var(--gold);font-weight:800;cursor:pointer;transition:.25s}.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px #d5ad6233}.btn.ghost{background:transparent;color:var(--gold)}
+.scene{height:470px;position:relative;display:grid;place-items:center;perspective:900px}
+.orb{width:min(340px,75vw);aspect-ratio:1;border-radius:50%;position:absolute;background:radial-gradient(circle at 35% 30%,#40505b 0%,#18232e 34%,#0a0e14 68%);box-shadow:inset -25px -25px 45px #000,0 0 80px #d5ad621c;transform:rotateX(18deg) rotateY(-20deg);animation:float 7s ease-in-out infinite}
+.orb:before,.orb:after{content:"";position:absolute;border:1px solid #d5ad6266;border-radius:50%;inset:-24px;transform:rotateX(70deg) rotateZ(20deg)}.orb:after{inset:-48px;transform:rotateY(68deg) rotateZ(-20deg);border-color:#91a5b344}
+.silhouette{position:relative;z-index:2;width:250px;filter:drop-shadow(0 12px 20px #000);animation:float 5s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translateY(-14px) rotateX(18deg) rotateY(-20deg)}}
+.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px}.stat{border-right:2px solid var(--gold);padding:8px 14px;background:linear-gradient(90deg,transparent,#ffffff08)}.stat b{display:block;color:var(--gold2);font-size:23px}.stat span{font-size:12px;color:var(--muted)}
+.sectionhead{margin-bottom:26px}.sectionhead p{max-width:750px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:linear-gradient(145deg,#17212b,#0d131a);border:1px solid var(--line);padding:23px;border-radius:8px;position:relative;overflow:hidden;transition:.3s;transform-style:preserve-3d}
+.card:hover{transform:translateY(-6px) rotateX(2deg);border-color:#d5ad6277;box-shadow:0 18px 40px #0006}.card:after{content:"";position:absolute;width:130px;height:130px;border:1px solid #d5ad621c;border-radius:50%;left:-55px;bottom:-70px}
+.icon{font-size:29px;color:var(--gold);margin-bottom:10px}.card p{font-size:14px}.tag{display:inline-block;color:var(--gold);font-size:11px;border:1px solid var(--line);padding:2px 9px;border-radius:20px;margin-bottom:12px}
+.timeline{border-right:1px solid var(--gold);margin-right:10px;padding-right:28px}.event{position:relative;margin:0 0 28px}.event:before{content:"";position:absolute;right:-35px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 15px #d5ad6280}.date{color:var(--gold);font:700 13px 'Cinzel',serif;direction:ltr;text-align:right}
+.note{padding:18px 20px;background:#d5ad620d;border-right:3px solid var(--gold);margin:22px 0;border-radius:4px}.note strong{color:var(--gold2)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.diagram{background:radial-gradient(circle,#1c2b37,#0b1016 70%);border:1px solid var(--line);border-radius:10px;padding:18px;min-height:300px;display:grid;place-items:center}
+.diagram svg{width:100%;max-width:420px;height:auto}
+.pose-list{display:grid;gap:12px}.pose{display:flex;gap:15px;align-items:flex-start;padding:14px;background:#ffffff08;border:1px solid #ffffff10;border-radius:7px}.pose b{color:var(--gold2);min-width:90px}
+.steps{counter-reset:step;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.step{counter-increment:step;padding:18px 18px 18px 55px;position:relative;background:#ffffff08;border:1px solid #ffffff12;border-radius:7px}.step:before{content:counter(step,decimal-leading-zero);position:absolute;left:16px;top:16px;color:var(--gold);font:700 18px 'Cinzel'}
+.quote{font-size:clamp(22px,3vw,34px);color:var(--gold2);font-weight:700;line-height:1.7;text-align:center;max-width:850px;margin:35px auto}
+footer{border-top:1px solid var(--line);padding:30px 5%;text-align:center;background:#06090d;color:#8e989f;font-size:12px}footer b{color:var(--gold)}
+.sources a{color:var(--gold2);text-decoration:underline;text-underline-offset:3px}
+.backtop{position:fixed;bottom:18px;left:18px;border:1px solid var(--line);background:#111a22;color:var(--gold);border-radius:50%;width:42px;height:42px;cursor:pointer}
+@media(max-width:850px){.hero,.two{grid-template-columns:1fr}.scene{height:340px}.grid{grid-template-columns:repeat(2,1fr)}.navlinks{display:none;position:absolute;top:60px;right:4%;left:4%;padding:18px;background:#0c1219;border:1px solid var(--line);border-radius:8px;flex-direction:column;align-items:stretch}.navlinks.open{display:flex}.navlinks button{text-align:right;padding:7px}.menu{display:block}}
+@media(max-width:560px){.page{padding:95px 5% 50px}.grid,.steps,.statrow{grid-template-columns:1fr}.hero{gap:5px}.scene{height:280px}.silhouette{width:190px}.orb{width:220px}.brand{font-size:14px}.eyebrow{letter-spacing:1px}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<header><nav class="nav">
+<div class="brand">DARK STORM <span style="color:#eee">KUNG FU</span></div>
+<button class="menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">القائمة ☰</button>
+<div class="navlinks" id="navlinks">
+<button class="active" data-page="home">الرئيسية</button><button data-page="history">الجذور والتاريخ</button><button data-page="philosophy">الفلسفة</button><button data-page="principles">المبادئ</button><button data-page="movement">الحركة والاتزان</button><button data-page="teaching">فن التعليم</button><button data-page="practice">التطبيق اليومي</button><button data-page="sources">المراجع</button>
+</div></nav></header>
+
+<main>
+<section class="page active" id="home"><div class="wrap hero">
+<div>
+<div class="eyebrow">THE WAY BEYOND STRENGTH</div>
+<h1><span>DARK STORM</span>KUNG FU</h1>
+<h3>ما وراء القوة… يبدأ التحكم</h3>
+<p>رحلة في تاريخ الفنون القتالية الصينية وفلسفتها؛ من الجذور التاريخية إلى الوعي بالحركة، والانضباط، والاتزان. هنا لا نبحث عن أسرار خارقة، بل نفهم المبادئ التي تصنع ممارسة واعية ومسؤولة.</p>
+<div class="actions"><button class="btn" onclick="go('history')">ابدأ الرحلة</button><button class="btn ghost" onclick="go('philosophy')">اكتشف الفلسفة</button></div>
+<div class="statrow"><div class="stat"><b>HISTORY</b><span>جذور موثقة وأساطير مفككة</span></div><div class="stat"><b>MIND</b><span>وعي وتركيز وانضباط</span></div><div class="stat"><b>MOTION</b><span>حركة واتزان بأمان</span></div></div>
+</div>
+<div class="scene"><div class="orb"></div>
+<svg class="silhouette" viewBox="0 0 300 350" role="img" aria-label="رسم ظلي لشخص في وضعية كونغ فو متزنة">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#e8c985"/><stop offset="1" stop-color="#8d6834"/></linearGradient></defs>
+<circle cx="153" cy="55" r="25" fill="#10161d" stroke="url(#g)" stroke-width="3"/>
+<path d="M145 82 Q112 105 125 155 L105 215 Q94 230 73 226 L35 207 Q21 202 18 214 Q15 229 38 239 L93 263 Q116 272 132 247 L158 190 L175 244 L151 302 Q144 322 163 326 L183 327 Q196 326 198 309 L219 249 Q225 228 212 205 L199 145 Q205 120 184 95 L165 82Z" fill="#10161d" stroke="url(#g)" stroke-width="3"/>
+<path d="M128 112 Q89 98 69 125 L38 151 Q20 164 29 176 Q40 188 57 173 L102 151 L139 157" fill="none" stroke="url(#g)" stroke-width="18" stroke-linecap="round"/>
+<path d="M181 111 Q215 87 233 110 L260 137 Q277 149 266 162 Q255 174 239 158 L206 143 L190 165" fill="none" stroke="url(#g)" stroke-width="18" stroke-linecap="round"/>
+<path d="M100 338 H240" stroke="#d5ad62" stroke-width="2" opacity=".5"/>
+</svg></div></div>
+<div class="rule"></div><div class="quote">«القوة ليست في أن تفرض حركتك على العالم، بل أن تفهم حركتك داخله.»</div>
+</section>
+
+<section class="page" id="history"><div class="wrap">
+<div class="sectionhead"><div class="eyebrow">01 / ROOTS & RECORDS</div><h2>الجذور والتاريخ</h2><p>تاريخ الكونغ فو ليس قصة شخص واحد أو معبد واحد؛ بل تطور طويل لممارسات قتالية ورياضية وثقافية داخل مجتمعات الصين.</p></div>
+<div class="note"><strong>تصحيح تاريخي مهم:</strong> لا يوجد دليل علمي موثوق يثبت أن راهبًا واحدًا اخترع كل الكونغ فو. كما أن تاريخ الفنون القتالية الصينية أقدم من شهرة معبد شاولين بقرون.</div>
+<div class="timeline">
+<div class="event"><div class="date">العصور القديمة</div><h3>الحاجة إلى المهارة</h3><p>تطورت مهارات الرماية والمصارعة والتدريب العسكري مع الصيد والحروب والطقوس الاجتماعية. وتشير الدراسات إلى جذور قديمة ومتنوعة، لا إلى لحظة تأسيس واحدة.</p></div>
+<div class="event"><div class="date">206 ق.م – 220 م | أسرة هان</div><h3>التوثيق والممارسة</h3><p>تظهر في المصادر الصينية إشارات إلى المصارعة والقتال بالأيدي، كما توثق الرسوم واللقى الأثرية أشكالًا من التدريب بالسلاح والحركة الفردية.</p></div>
+<div class="event"><div class="date">728 م | شاولين</div><h3>الشاهد التاريخي</h3><p>يرتبط تاريخ شاولين بنقش يعود إلى القرن الثامن يذكر أحداثًا عسكرية سابقة. لكن الأدلة المتاحة على ممارسة رهبان شاولين للفنون القتالية تصبح أوضح بكثير في مصادر القرنين السادس عشر والسابع عشر.</p></div>
+<div class="event"><div class="date">عصر مينغ وتشينغ</div><h3>تنوع المدارس والأساليب</h3><p>انتشرت أدلة ومؤلفات عن التدريب، وظهرت مدارس وأساليب متعددة، مع تداخل الخبرة العسكرية والممارسة الشعبية والثقافة المحلية.</p></div>
+<div class="event"><div class="date">العصر الحديث</div><h3>من التراث إلى الرياضة</h3><p>تطورت أشكال حديثة من الووشو للتعليم والعروض والمنافسات، إلى جانب استمرار مدارس تقليدية متنوعة.</p></div>
+</div>
+<div class="grid">
+<div class="card"><span class="tag">FACT</span><h3>ما نعرفه</h3><p>الفنون القتالية الصينية متعددة الجذور، ولها سجلات تاريخية مكتوبة ومادية.</p></div>
+<div class="card"><span class="tag">LEGEND</span><h3>ما يُروى</h3><p>قصص كثيرة عن نشأة الأساليب وأبطالها تحمل قيمة ثقافية، لكنها ليست كلها حقائق مثبتة.</p></div>
+<div class="card"><span class="tag">METHOD</span><h3>كيف نتحقق؟</h3><p>نقارن الرواية بالمخطوطات والنقوش والدراسات الأكاديمية، ونميز بين الدليل والتقليد الشفهي.</p></div>
+</div></div></section>
+
+<section class="page" id="philosophy"><div class="wrap">
+<div class="sectionhead"><div class="eyebrow">02 / THE INNER WAY</div><h2>فلسفة الكونغ فو</h2><p>الفلسفة هنا ليست قوى غامضة أو أسرارًا خارقة؛ إنها طريقة لفهم العلاقة بين الجسد والعقل والسلوك.</p></div>
+<div class="grid">
+<div class="card"><div class="icon">☯</div><h3>التوازن — Yin & Yang</h3><p>التوازن ليس ثباتًا جامدًا. هو إدراك التغير والتعامل معه: جهد وراحة، ثبات ومرونة، تركيز وهدوء.</p></div>
+<div class="card"><div class="icon">◉</div><h3>الوعي — Awareness</h3><p>لاحظ وضع جسدك وتنفسك ومساحتك. الوعي يسبق الحركة ويجعل التدريب أكثر أمانًا ودقة.</p></div>
+<div class="card"><div class="icon">⌁</div><h3>المرونة — Adaptability</h3><p>لا تتمسك بطريقة واحدة في كل موقف. تعلّم التعديل، واطلب المساعدة عندما تتجاوز الحركة قدرتك الحالية.</p></div>
+<div class="card"><div class="icon">◇</div><h3>الانضباط — Discipline</h3><p>التقدم نتيجة ممارسة منتظمة قابلة للاستمرار، لا نتيجة إجهاد مبالغ فيه أو استعجال.</p></div>
+<div class="card"><div class="icon">◎</div><h3>الاحترام — Respect</h3><p>احترام المدرب والزملاء وحدود الآخرين، وعدم استخدام المهارة لإخافة أحد أو إيذائه.</p></div>
+<div class="card"><div class="icon">✧</div><h3>التواضع — Humility</h3><p>اعرف ما تتقنه وما لا تتقنه. الاعتراف بالحدود علامة نضج وليست ضعفًا.</p></div>
+</div>
+<div class="quote">«تدرّب لتصبح أكثر اتزانًا، لا أكثر رغبة في إثبات القوة.»</div>
+</div></section>
+
+<section class="page" id="principles"><div class="wrap">
+<div class="sectionhead"><div class="eyebrow">03 / THE REAL PRINCIPLES</div><h2>المبادئ الأساسية</h2><p>هذه ليست «أسرارًا سرية»؛ إنها قواعد عملية تساعد المتدرب على بناء أساس متين.</p></div>
+<div class="steps">
+<div class="step"><h3>المحاذاة</h3><p>اجعل الرأس والكتفين والحوض في وضع مريح، وتجنب الانحناء أو الالتواء القسري.</p></div>
+<div class="step"><h3>التنفس الطبيعي</h3><p>لا تحبس النفس أثناء التمرين. حافظ على تنفس هادئ وتوقف إذا شعرت بدوار أو ألم.</p></div>
+<div class="step"><h3>التدرج</h3><p>ابدأ بمدى حركة بسيط، ثم زد الصعوبة تدريجيًا تحت إشراف مدرب مؤهل.</p></div>
+<div class="step"><h3>التركيز</h3><p>نفّذ حركة واحدة بوعي بدل تكرار سريع بلا انتباه لجودة الأداء.</p></div>
+<div class="step"><h3>الاسترخاء</h3><p>لا تجعل العضلات مشدودة طوال الوقت. تعلّم التمييز بين الثبات المريح والتوتر الزائد.</p></div>
+<div class="step"><h3>المسؤولية</h3><p>لا تطبق الحركات على شخص آخر دون إشراف وموافقة واضحة، ولا تحول التدريب إلى تحدٍّ أو شجار.</p></div>
+</div>
+<div class="note"><strong>قاعدة ذهبية:</strong> الألم الحاد أو الدوار أو ضيق النفس إشارة للتوقف وإخبار المدرب. لا تتدرب وحدك على حركات خطرة أو على أرضية غير مناسبة.</div>
+</div></section>
+
+<section class="page" id="movement"><div class="wrap">
+<div class="sectionhead"><div class="eyebrow">04 / MOVEMENT STUDY</div><h2>الحركة والاتزان — بالرسوم</h2><p>رسوم تعليمية مبسطة لوضعيات تأسيسية غير قتالية. استخدمها لفهم المحاذاة والتوازن فقط، وتعلم الأداء الفعلي مع مدرب وفي مساحة آمنة.</p></div>
+<div class="two">
+<div class="diagram">
+<svg viewBox="0 0 420 310" aria-label="رسم توضيحي لوضعية الوقوف المتزن">
+<defs><linearGradient id="linegold"><stop stop-color="#8d6834"/><stop offset="1" stop-color="#f1d59b"/></linearGradient></defs>
+<path d="M35 275 H385" stroke="#d5ad62" opacity=".55" stroke-width="2"/>
+<circle cx="210" cy="65" r="23" fill="none" stroke="url(#linegold)" stroke-width="5"/>
+<path d="M210 90 L210 180 M210 112 L160 150 M210 112 L260 150 M210 180 L170 270 M210 180 L250 270" stroke="url(#linegold)" stroke-width="9" stroke-linecap="round" fill="none"/>
+<path d="M160 150 L150 155 M260 150 L270 155" stroke="#d5ad62" stroke-width="7" stroke-linecap="round"/>
+<path d="M155 275 H185 M235 275 H265" stroke="#f1d59b" stroke-width="7" stroke-linecap="round"/>
+<path d="M210 35 V15 M180 65 H145 M240 65 H275" stroke="#8295a3" stroke-dasharray="4 5" opacity=".6"/>
+<text x="210" y="300" text-anchor="middle" fill="#c1c8ce" font-size="12">محور الجسم — توزيع مريح للوزن</text>
+</svg></div>
+<div><h3>01 — الوقوف المحايد</h3><p>ابدأ بوقفة طبيعية مريحة، والقدمان على مسافة مناسبة، والركبتان غير مقفلتين، والكتفان مسترخيان.</p><div class="pose-list">
+<div class="pose"><b>الرأس</b><span>مستقيم والنظر للأمام دون رفع الذقن.</span></div>
+<div class="pose"><b>الكتفان</b><span>مسترخيان دون شد أو رفع.</span></div>
+<div class="pose"><b>الركبتان</b><span>مرنتان قليلًا دون ثني عميق.</span></div>
+<div class="pose"><b>القدمان</b><span>ثبات مريح على سطح غير زلق.</span></div>
+</div></div></div>
+<div class="rule"></div>
+<div class="two">
+<div><h3>02 — نقل الوزن بوعي</h3><p>تدريب بسيط على الإحساس بتوزيع الوزن، دون اندفاع أو خطوات سريعة. حافظ على مدى صغير ومريح.</p><ul><li>ابدأ من الوقوف المحايد.</li><li>انقل جزءًا بسيطًا من الوزن إلى قدم، ثم عد للمنتصف.</li><li>كرر للجهة الأخرى ببطء.</li><li>توقف إذا فقدت الاتزان أو شعرت بألم.</li></ul></div>
+<div class="diagram"><svg viewBox="0 0 420 260" aria-label="رسم انتقال الوزن بين القدمين"><path d="M35 220 H385" stroke="#d5ad62" opacity=".5" stroke-width="2"/><circle cx="205" cy="45" r="20" fill="none" stroke="#d5ad62" stroke-width="5"/><path d="M205 68 L205 145 L155 210 M205 145 L260 210 M205 90 L160 125 M205 90 L250 125" fill="none" stroke="#e4c27d" stroke-width="9" stroke-linecap="round"/><path d="M95 235 Q205 265 325 235" fill="none" stroke="#8295a3" stroke-dasharray="5 6" stroke-width="2"/><path d="M130 228 L115 218 M130 228 L112 233 M280 228 L298 218 M280 228 L300 233" stroke="#d5ad62" stroke-width="3" fill="none"/></svg></div></div>
+<div class="note"><strong>تنبيه:</strong> هذه الرسوم توضيحية وليست بديلًا عن مشاهدة المدرب وتصحيح الوضعية. لا تتضمن الصفحة تعليمات لضرب الأشخاص أو إسقاطهم أو تنفيذ حركات مؤذية.</div>
+</div></section>
+
+<section class="page" id="teaching"><div class="wrap">
+<div class="sectionhead"><div class="eyebrow">05 / TEACHING THE ART</div><h2>كيف تعلّم الكونغ فو؟</h2><p>المدرب الجيد لا ينقل حركة فقط؛ بل يبني بيئة تعلم آمنة، ويشرح الهدف، ويراقب التقدم، ويحترم اختلاف مستويات المتدربين.</p></div>
+<div class="grid">
+<div class="card"><div class="icon">Ⅰ</div><h3>ابدأ بالهدف</h3><p>حدد ما سيتعلمه المتدرب في نهاية الحصة: اتزان، مرونة، تنسيق، تركيز أو معرفة تاريخية.</p></div>
+<div class="card"><div class="icon">Ⅱ</div><h3>اشرح ثم اعرض</h3><p>قدم شرحًا قصيرًا، ثم نموذجًا بطيئًا وواضحًا، مع توضيح الأخطاء الشائعة الآمنة.</p></div>
+<div class="card"><div class="icon">Ⅲ</div><h3>راقب وصحح</h3><p>استخدم ملاحظات محترمة ومحددة. لا تجبر المتدرب على مدى حركة لا يناسبه.</p></div>
+<div class="card"><div class="icon">Ⅳ</div><h3>قسّم المستويات</h3><p>اجعل لكل مستوى أهدافًا مناسبة، ولا تقارن المتدربين ببعضهم.</p></div>
+<div class="card"><div class="icon">Ⅴ</div><h3>قيّم التقدم</h3><p>سجل الحضور، والالتزام، وجودة الحركة، والتحسن الشخصي بدل التركيز على القوة وحدها.</p></div>
+<div class="card"><div class="icon">Ⅵ</div><h3>حافظ على السلامة</h3><p>إحماء مناسب، أرضية آمنة، مساحة كافية، إشراف مباشر، وماء وفترات راحة.</p></div>
+</div>
+<div class="rule"></div><h3>نموذج حصة تعليمية عامة</h3>
+<div class="steps">
+<div class="step"><h3>التهيئة</h3><p>تعريف هدف الحصة وقواعد السلامة.</p></div>
+<div class="step"><h3>الإحماء</h3><p>حركة خفيفة ومفاصل ومدى مريح بإشراف المدرب.</p></div>
+<div class="step"><h3>المهارة</h3><p>شرح وضعية أو تمرين اتزان غير احتكاكي.</p></div>
+<div class="step"><h3>التطبيق</h3><p>تكرار هادئ مع تصحيح فردي دون منافسة مؤذية.</p></div>
+<div class="step"><h3>التهدئة</h3><p>تنفس طبيعي وحركة خفيفة بعد التدريب.</p></div>
+<div class="step"><h3>التقييم</h3><p>سؤال المتدربين عما تعلموه وتحديد هدف الحصة القادمة.</p></div>
+</div>
+</div></section>
+
+<section class="page" id="practice"><div class="wrap">
+<div class="sectionhead"><div class="eyebrow">06 / DAILY PRACTICE</div><h2>كيف تطبق الفلسفة في حياتك؟</h2><p>جوهر التدريب يظهر خارج القاعة: في قراراتك، وصبرك، وطريقة تعاملك مع الضغط والناس.</p></div>
+<div class="grid">
+<div class="card"><h3>في الدراسة</h3><p>قسّم المهمة الكبيرة إلى خطوات صغيرة، وركز على خطوة واحدة في كل مرة.</p></div>
+<div class="card"><h3>في العلاقات</h3><p>القوة ليست السيطرة؛ إنها احترام الحدود، والإنصات، وضبط رد الفعل.</p></div>
+<div class="card"><h3>في التحديات</h3><p>توقف، لاحظ، قيّم الخيارات، ثم اختر التصرف الأكثر أمانًا وفائدة.</p></div>
+<div class="card"><h3>في التدريب</h3><p>الاستمرارية الهادئة أفضل من الاندفاع الذي ينتهي بالإرهاق أو الإصابة.</p></div>
+<div class="card"><h3>في القيادة</h3><p>القائد يشرح الهدف، ويستمع للفريق، ويعترف بالخطأ ويصححه.</p></div>
+<div class="card"><h3>في تطوير الذات</h3><p>قِس تقدمك مقارنة بمستواك السابق، لا بمستوى شخص آخر.</p></div>
+</div>
+<div class="quote">«الانضباط أن تختار ما ينفعك، حتى عندما لا يكون الأسهل.»</div>
+<h3>ميثاق Dark Storm</h3>
+<div class="note"><p>أتعلم باحترام. أتدرب بوعي. لا أستخدم المعرفة لإيذاء الآخرين. أفرق بين التاريخ والأسطورة. أحترم حدود جسدي وحدود زملائي. وأجعل القوة مسؤولية قبل أن تكون مهارة.</p></div>
+</div></section>
+
+<section class="page" id="sources"><div class="wrap">
+<div class="sectionhead"><div class="eyebrow">07 / SOURCES & HONESTY</div><h2>المراجع والمنهج</h2><p>المحتوى التاريخي مبني على مراجع بحثية وثقافية منشورة. بعض التفاصيل التاريخية محل نقاش، لذلك لا نقدم الأساطير على أنها حقائق مؤكدة.</p></div>
+<div class="card sources"><h3>مراجع للقراءة</h3>
+<p><a href="https://www.cambridge.org/core/books/chinese-martial-arts/introduction/69E885E0EF433992644C8E5025B71708" target="_blank" rel="noopener">Peter A. Lorge — Chinese Martial Arts: From Antiquity to the Twenty-First Century (Cambridge University Press)</a></p>
+<p><a href="https://www.iias.asia/the-review/martial-arts-and-history-china" target="_blank" rel="noopener">Henning Wittwer — Martial Arts and the History of China</a></p>
+<p><a href="https://en.chinaculture.org/chineseway/2012-08/07/content_438086_2.htm" target="_blank" rel="noopener">China Culture — History of Chinese Martial Arts</a></p>
+<p><a href="https://www.routledge.com/A-History-of-Chinese-Martial-Arts/Huang-Hong/p/book/9781138645585" target="_blank" rel="noopener">Fuhua Huang & Fan Hong (eds.) — A History of Chinese Martial Arts (Routledge)</a></p>
+</div>
+<div class="note"><strong>ملاحظة تحريرية:</strong> هذا الموقع مادة ثقافية وتعليمية عامة، وليس اعتمادًا تدريبيًا أو بديلًا عن مدرب مؤهل أو مختص طبي. قبل تدريس أي نشاط بدني، تأكد من ملاءمة المكان والإشراف ومتطلبات السلامة المحلية.</div>
+<div style="text-align:center;margin-top:40px"><div class="eyebrow">FOUNDER & AUTHOR</div><h2 style="font-family:'Cinzel',serif;color:var(--gold);direction:ltr">HISHAM WALID</h2><p>Dark Storm Kung Fu — The philosophy behind the movement.</p></div>
+</div></section>
+</main>
+<footer><b>DARK STORM KUNG FU</b><br>تأليف وإعداد: Hisham Walid<br><span>Built around history, awareness, discipline & respect.</span></footer>
+<button class="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="العودة للأعلى">↑</button>
+<script>
+const pages=[...document.querySelectorAll('.page')], links=[...document.querySelectorAll('[data-page]')];
+function go(id){pages.forEach(p=>p.classList.toggle('active',p.id===id));links.forEach(b=>b.classList.toggle('active',b.dataset.page===id));document.querySelector('.navlinks').classList.remove('open');window.scrollTo({top:0,behavior:'smooth'});history.replaceState(null,'','#'+id)}
+links.forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+const initial=location.hash.slice(1);if(pages.some(p=>p.id===initial))go(initial);
+window.addEventListener('scroll',()=>{let h=document.documentElement;document.getElementById('progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'});
+</script>
+</body></html>
